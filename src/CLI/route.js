@@ -1,8 +1,11 @@
+const { apresentation } = require("./paths")
+
 class Route {
-    currect_path = "home page"
+    currect_path = "introduction"
     list_of_path = [
         "home page",
         "exit",
+        "introduction"
     ]
 
     constructor (redirect) {
@@ -17,6 +20,10 @@ class Route {
 
     async filter (path = "") {
         switch (path) {
+            case "introduction":
+                await apresentation()
+                break;
+
             case "home page":
                 break;
 
