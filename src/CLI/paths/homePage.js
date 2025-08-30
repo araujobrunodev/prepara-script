@@ -14,9 +14,9 @@ async function homePage () {
     const typed = await text("what do you chose it? ")
 
     if (typed.isCommand) {
-        //go to determinated path
+        new Route(typed.command)
     } else {
-        //reload page
+        await homePage()
     }
 }
 
