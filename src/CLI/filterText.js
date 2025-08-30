@@ -7,12 +7,18 @@ const command_list = [
 async function filterText (rawValue = "") {
     const processed_text = {
         value: rawValue,
-        isCommand: false
+        isCommand: false,
+        command: ""
     }
 
-    const find_command = command_list.findIndex((command) => rawValue.search(command) > -1)
+    const find_command = command_list.findIndex((command) => rawValue.toLowerCase() == command)
 
-    if (find_command > -1) processed_text.isCommand = true;
+    if (find_command > -1) {
+        const start_piece_of_command = (command_list[find_command]).slice(1,(command_list[find_command]).length)
+        
+        processed_text.command = start_piece_of_command
+        processed_text.isCommand = true
+    }
 
     return processed_text
 }
