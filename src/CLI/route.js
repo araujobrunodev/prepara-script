@@ -1,4 +1,4 @@
-const { apresentation } = require("./paths")
+const { apresentation, homePage, exit } = require("./paths")
 
 class Route {
     currect_path = "introduction"
@@ -21,13 +21,15 @@ class Route {
     async filter (path = "") {
         switch (path) {
             case "introduction":
-                await apresentation()
+                return await apresentation()
                 break;
 
             case "home page":
+                return await homePage()
                 break;
 
             case "exit":
+                return exit()
                 break;
         }
     }
