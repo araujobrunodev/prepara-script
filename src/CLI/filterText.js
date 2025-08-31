@@ -1,7 +1,8 @@
 const command_list = [
     ">home_page",
     ">exit",
-    ">introduction"
+    ">introduction",
+    ">login"
 ]
 
 async function filterText (rawValue = "") {

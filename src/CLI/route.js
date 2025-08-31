@@ -1,11 +1,12 @@
-const { apresentation, homePage, exit } = require("./paths")
+const { apresentation, homePage, exit, login } = require("./paths")
 
 class Route {
     currect_path = "introduction"
     list_of_path = [
         "home page",
         "exit",
-        "introduction"
+        "introduction",
+        "login"
     ]
 
     constructor (redirect) {
@@ -29,6 +30,11 @@ class Route {
             case "home page":
                 this.currect_path = "home page"
                 return await homePage(this)
+                break;
+
+            case "login":
+                this.currect_path = "login"
+                return await login(this)
                 break;
 
             case "exit":
