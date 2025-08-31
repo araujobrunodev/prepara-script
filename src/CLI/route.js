@@ -18,17 +18,21 @@ class Route {
         }
     }
 
-    async filter (path = "") {
+    async to (path = "") {
         switch (path) {
             case "introduction":
-                return await apresentation()
+                this.currect_path = "introduction"
+                await apresentation()
+                return await homePage(this)
                 break;
 
             case "home page":
-                return await homePage()
+                this.currect_path = "home page"
+                return await homePage(this)
                 break;
 
             case "exit":
+                this.currect_path = "exit"
                 return exit()
                 break;
         }

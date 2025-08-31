@@ -1,7 +1,6 @@
 const text = require("../text")
-const {Route} = require("../route")
 
-async function homePage () {
+async function homePage (redirect) {
     console.log("\n======================")
     console.log("   Home page   ")
     console.log("======================\n")
@@ -14,7 +13,7 @@ async function homePage () {
     const typed = await text("what do you chose it? ")
 
     if (typed.isCommand) {
-        new Route(typed.command)
+        await redirect.to(typed.command)
     } else {
         await homePage()
     }
